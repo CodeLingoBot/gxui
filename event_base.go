@@ -43,7 +43,7 @@ func (e *EventBase) init(signature interface{}) {
 				return
 			}
 		}
-		panic(fmt.Errorf("Listener not added to event"))
+		panic(fmt.Errorf("listener not added to event"))
 	}
 
 	f := reflect.TypeOf(signature)
@@ -159,7 +159,7 @@ func (e *EventBase) Listen(listener interface{}) EventSubscription {
 			paramTypes = ty.ParameterTypes()
 			function = reflect.ValueOf(listener).MethodByName("Fire")
 		default:
-			panic(fmt.Errorf("Listener cannot be of type %v", reflectTy.String()))
+			panic(fmt.Errorf("listener cannot be of type %v", reflectTy.String()))
 		}
 	}
 

@@ -39,6 +39,6 @@ func (d drawMode) primitiveCount(vertexCount int) int {
 	case dmTriangles:
 		return vertexCount / 3
 	default:
-		panic(fmt.Errorf("Unknown drawMode 0x%.4x", d))
+		panic(fmt.Errorf("unknown drawMode 0x%.4x", d))
 	}
 }

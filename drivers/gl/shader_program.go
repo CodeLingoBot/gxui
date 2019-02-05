@@ -99,10 +99,10 @@ func (s *shaderProgram) bind(ctx *context, vb *vertexBuffer, uniforms uniformBin
 	for _, a := range s.attributes {
 		vs, found := vb.streams[a.name]
 		if !found {
-			panic(fmt.Errorf("VertexBuffer missing required stream '%s'", a.name))
+			panic(fmt.Errorf("vertexBuffer missing required stream '%s'", a.name))
 		}
 		if a.ty != vs.ty {
-			panic(fmt.Errorf("Attribute '%s' type '%s' does not match stream type '%s'",
+			panic(fmt.Errorf("attribute '%s' type '%s' does not match stream type '%s'",
 				a.name, a.ty, vs.ty))
 		}
 		elementCount := a.ty.vectorElementCount()
@@ -114,7 +114,7 @@ func (s *shaderProgram) bind(ctx *context, vb *vertexBuffer, uniforms uniformBin
 	for _, u := range s.uniforms {
 		v, found := uniforms[u.name]
 		if !found {
-			panic(fmt.Errorf("Uniforms missing '%s'", u.name))
+			panic(fmt.Errorf("uniforms missing '%s'", u.name))
 		}
 		u.bind(ctx, v)
 	}

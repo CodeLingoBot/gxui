@@ -41,7 +41,7 @@ type canvas struct {
 
 func newCanvas(sizeDips math.Size) *canvas {
 	if sizeDips.W <= 0 || sizeDips.H < 0 {
-		panic(fmt.Errorf("Canvas width and height must be positive. Size: %d", sizeDips))
+		panic(fmt.Errorf("canvas width and height must be positive. Size: %d", sizeDips))
 	}
 	c := &canvas{
 		sizeDips: sizeDips,
@@ -79,7 +79,7 @@ func (c *canvas) Complete() {
 		panic("Complete() called twice")
 	}
 	if c.buildingPushCount != 0 {
-		panic(fmt.Errorf("Push() count was %d when calling Complete", c.buildingPushCount))
+		panic(fmt.Errorf("push() count was %d when calling Complete", c.buildingPushCount))
 	}
 	c.built = true
 }

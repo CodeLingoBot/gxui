@@ -78,7 +78,7 @@ func (a *DefaultAdapter) Count() int {
 func (a *DefaultAdapter) ItemAt(index int) AdapterItem {
 	count := a.Count()
 	if index < 0 || index >= count {
-		panic(fmt.Errorf("ItemAt index %d is out of bounds [%d, %d]",
+		panic(fmt.Errorf("itemAt index %d is out of bounds [%d, %d]",
 			index, 0, count-1))
 	}
 

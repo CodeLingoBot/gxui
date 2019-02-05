@@ -180,7 +180,7 @@ func deepCompareD(e, g reflect.Value, trail string, depth int) (result []string,
 		result = append(result, fmt.Sprintf("%s: Cannot compare UnsafePointers", trail))
 	default:
 		// Should not be possible
-		panic(fmt.Errorf("Unexpected types! expected: (type:%v, kind:%v, valid: %v) got:(type:%v, kind:%v, valid: %v)", e.Type(), e.Kind(), e.IsValid(), g.Type(), g.Kind(), g.IsValid()))
+		panic(fmt.Errorf("unexpected types! expected: (type:%v, kind:%v, valid: %v) got:(type:%v, kind:%v, valid: %v)", e.Type(), e.Kind(), e.IsValid(), g.Type(), g.Kind(), g.IsValid()))
 	}
 	return
 }

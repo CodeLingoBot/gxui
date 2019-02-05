@@ -21,7 +21,7 @@ func translateMouseButton(button glfw.MouseButton) gxui.MouseButton {
 	case glfw.MouseButtonRight:
 		return gxui.MouseButtonRight
 	default:
-		panic(fmt.Errorf("Unknown mouse button %v", button))
+		panic(fmt.Errorf("unknown mouse button %v", button))
 	}
 }
 

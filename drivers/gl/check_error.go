@@ -22,7 +22,7 @@ func checkError() {
 		case gl.INVALID_VALUE:
 			panic("GL returned error GL_INVALID_VALUE")
 		default:
-			panic(fmt.Errorf("GL returned error 0x%.4x", v))
+			panic(fmt.Errorf("gL returned error 0x%.4x", v))
 		}
 	}
 }

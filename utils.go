@@ -41,7 +41,7 @@ func (l ControlPointList) Find(c Control) (math.Point, bool) {
 func ValidateHierarchy(p Parent) {
 	for _, c := range p.Children() {
 		if p != c.Control.Parent() {
-			panic(fmt.Errorf("Child's parent is not as expected.\nChild: %s\nExpected parent: %s",
+			panic(fmt.Errorf("child's parent is not as expected.\nChild: %s\nExpected parent: %s",
 				Path(c.Control), Path(p)))
 		}
 		if cp, ok := c.Control.(Parent); ok {
@@ -121,7 +121,7 @@ func WindowToChild(coord math.Point, to Control) math.Point {
 		child := p.Children().Find(c)
 		if child == nil {
 			Dump(p)
-			panic(fmt.Errorf("Control's parent (%p %T) did not contain control (%p %T).", &p, p, &c, c))
+			panic(fmt.Errorf("control's parent (%p %T) did not contain control (%p %T)", &p, p, &c, c))
 		}
 		coord = coord.Sub(child.Offset)
 		if _, ok := p.(Window); ok {
@@ -136,12 +136,12 @@ func ChildToParent(coord math.Point, from Control, to Parent) math.Point {
 	for {
 		p := c.Parent()
 		if p == nil {
-			panic(fmt.Errorf("Control detached: %s", Path(c)))
+			panic(fmt.Errorf("control detached: %s", Path(c)))
 		}
 		child := p.Children().Find(c)
 		if child == nil {
 			Dump(p)
-			panic(fmt.Errorf("Control's parent (%p %T) did not contain control (%p %T).", &p, p, &c, c))
+			panic(fmt.Errorf("control's parent (%p %T) did not contain control (%p %T)", &p, p, &c, c))
 		}
 		coord = coord.Add(child.Offset)
 		if p == to {
@@ -152,7 +152,7 @@ func ChildToParent(coord math.Point, from Control, to Parent) math.Point {
 			c = control
 		} else {
 			Dump(p)
-			panic(fmt.Errorf("ChildToParent (%p %T) -> (%p %T) reached non-control parent (%p %T).",
+			panic(fmt.Errorf("childToParent (%p %T) -> (%p %T) reached non-control parent (%p %T)",
 				&from, from, &to, to, &p, p))
 		}
 	}
@@ -169,7 +169,7 @@ func TransformCoordinate(coord math.Point, from, to Control) math.Point {
 
 	ancestor := CommonAncestor(from, to)
 	if ancestor == nil {
-		panic(fmt.Errorf("No common ancestor between %s and %s", Path(from), Path(to)))
+		panic(fmt.Errorf("no common ancestor between %s and %s", Path(from), Path(to)))
 	}
 
 	if parent, ok := ancestor.(Control); !ok || parent != from {

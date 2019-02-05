@@ -46,7 +46,7 @@ func (u *shaderUniform) bind(context *context, v interface{}) {
 			gl.Uniform2fv(u.location, []float32{v.X, v.Y})
 		case []float32:
 			if len(v)%2 != 0 {
-				panic(fmt.Errorf("Uniform '%s' of type vec2 should be an float32 array with a multiple of two length", u.name))
+				panic(fmt.Errorf("uniform '%s' of type vec2 should be an float32 array with a multiple of two length", u.name))
 			}
 			gl.Uniform2fv(u.location, v)
 		}
@@ -56,7 +56,7 @@ func (u *shaderUniform) bind(context *context, v interface{}) {
 			gl.Uniform3fv(u.location, []float32{v.X, v.Y, v.Z})
 		case []float32:
 			if len(v)%3 != 0 {
-				panic(fmt.Errorf("Uniform '%s' of type vec3 should be an float32 array with a multiple of three length", u.name))
+				panic(fmt.Errorf("uniform '%s' of type vec3 should be an float32 array with a multiple of three length", u.name))
 			}
 			gl.Uniform3fv(u.location, v)
 		}
@@ -68,7 +68,7 @@ func (u *shaderUniform) bind(context *context, v interface{}) {
 			gl.Uniform4fv(u.location, []float32{v.R, v.G, v.B, v.A})
 		case []float32:
 			if len(v)%4 != 0 {
-				panic(fmt.Errorf("Uniform '%s' of type vec4 should be an float32 array with a multiple of four length", u.name))
+				panic(fmt.Errorf("uniform '%s' of type vec4 should be an float32 array with a multiple of four length", u.name))
 			}
 			gl.Uniform4fv(u.location, v)
 		}
@@ -78,6 +78,6 @@ func (u *shaderUniform) bind(context *context, v interface{}) {
 		gl.BindTexture(gl.TEXTURE_2D, tc.texture)
 		gl.Uniform1i(u.location, u.textureUnit)
 	default:
-		panic(fmt.Errorf("Uniform of unsupported type %s", u.ty))
+		panic(fmt.Errorf("uniform of unsupported type %s", u.ty))
 	}
 }

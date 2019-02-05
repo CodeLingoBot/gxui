@@ -20,10 +20,10 @@ func newIndexBuffer(ty primitiveType, data16 []uint16) *indexBuffer {
 	switch ty {
 	case ptUbyte, ptUshort, ptUint:
 		if !ty.isArrayOfType(data16) {
-			panic(fmt.Errorf("Index data is not of type %v", ty))
+			panic(fmt.Errorf("index data is not of type %v", ty))
 		}
 	default:
-		panic(fmt.Errorf("Index type must be either UBYTE, USHORT or UINT. Got: %v", ty))
+		panic(fmt.Errorf("index type must be either UBYTE, USHORT or UINT. Got: %v", ty))
 	}
 
 	// HACK: Hardcode support for only ptUshort.

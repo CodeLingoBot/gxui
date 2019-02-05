@@ -140,7 +140,7 @@ func (p *PanelHolder) AddPanel(panel gxui.Control, name string) {
 
 func (p *PanelHolder) AddPanelAt(panel gxui.Control, name string, index int) {
 	if index < 0 || index > p.PanelCount() {
-		panic(fmt.Errorf("Index %d is out of bounds. Acceptable range: [%d - %d]",
+		panic(fmt.Errorf("index %d is out of bounds. Acceptable range: [%d - %d]",
 			index, 0, p.PanelCount()))
 	}
 	tab := p.outer.CreatePanelTab()
@@ -186,7 +186,7 @@ func (p *PanelHolder) RemovePanel(panel gxui.Control) {
 
 func (p *PanelHolder) Select(index int) {
 	if index >= p.PanelCount() {
-		panic(fmt.Errorf("Index %d is out of bounds. Acceptable range: [%d - %d]",
+		panic(fmt.Errorf("index %d is out of bounds. Acceptable range: [%d - %d]",
 			index, -1, p.PanelCount()-1))
 	}
 

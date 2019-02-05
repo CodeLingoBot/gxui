@@ -102,7 +102,7 @@ func (f *font) align(rect math.Rect, size math.Size, ascent int, h gxui.Horizont
 
 func (f *font) DrawRunes(ctx *context, runes []rune, offsets []math.Point, col gxui.Color, ds *drawState) {
 	if len(runes) != len(offsets) {
-		panic(fmt.Errorf("There must be the same number of runes to offsets. Got %d runes and %d offsets",
+		panic(fmt.Errorf("there must be the same number of runes to offsets. Got %d runes and %d offsets",
 			len(runes), len(offsets)))
 	}
 	resolution := ctx.resolution

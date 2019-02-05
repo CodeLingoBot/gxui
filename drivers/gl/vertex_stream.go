@@ -24,7 +24,7 @@ func newVertexStream(name string, ty shaderDataType, data32 []float32) *vertexSt
 	dataLen := dataVal.Len()
 
 	if dataLen%ty.vectorElementCount() != 0 {
-		panic(fmt.Errorf("Incorrect multiple of elements. Got: %d, Requires multiple of %d",
+		panic(fmt.Errorf("incorrect multiple of elements. Got: %d, Requires multiple of %d",
 			dataLen, ty.vectorElementCount()))
 	}
 	if !ty.vectorElementType().isArrayOfType(data32) {

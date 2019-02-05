@@ -48,10 +48,10 @@ func (l *Layoutable) Size() math.Size {
 
 func (l *Layoutable) SetSize(size math.Size) {
 	if size.W < 0 {
-		panic(fmt.Errorf("SetSize() called with a negative width. Size: %v", size))
+		panic(fmt.Errorf("setSize() called with a negative width. Size: %v", size))
 	}
 	if size.H < 0 {
-		panic(fmt.Errorf("SetSize() called with a negative height. Size: %v", size))
+		panic(fmt.Errorf("setSize() called with a negative height. Size: %v", size))
 	}
 
 	sizeChanged := l.size != size

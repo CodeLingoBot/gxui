@@ -133,7 +133,7 @@ func (l *List) LayoutChildren() {
 		details, found := l.details[item]
 		if found {
 			if details.mark == mark {
-				panic(fmt.Errorf("Adapter for control '%s' returned duplicate item (%v) for indices %v and %v",
+				panic(fmt.Errorf("adapter for control '%s' returned duplicate item (%v) for indices %v and %v",
 					gxui.Path(l.outer), item, details.index, idx))
 			}
 		} else {

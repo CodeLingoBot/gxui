@@ -20,7 +20,7 @@ func newVertexBuffer(streams ...*vertexStream) *vertexBuffer {
 			vb.count = s.count
 		} else {
 			if vb.count != s.count {
-				panic(fmt.Errorf("Inconsistent vertex count in vertex buffer. %s has %d vertices, %s has %d",
+				panic(fmt.Errorf("inconsistent vertex count in vertex buffer. %s has %d vertices, %s has %d",
 					streams[i-1].name, streams[i-1].count, s.name, s.count))
 			}
 		}

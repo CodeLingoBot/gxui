@@ -79,7 +79,7 @@ func (c *Container) AddChildAt(index int, control gxui.Control) *gxui.Child {
 		panic("Child already has a parent")
 	}
 	if index < 0 || index > len(c.children) {
-		panic(fmt.Errorf("Index %d is out of bounds. Acceptable range: [%d - %d]",
+		panic(fmt.Errorf("index %d is out of bounds. Acceptable range: [%d - %d]",
 			index, 0, len(c.children)))
 	}
 
